@@ -7,10 +7,7 @@ import classnames from 'classnames';
 import PollContainer from 'mastodon/containers/poll_container';
 import Icon from 'mastodon/components/icon';
 import { autoPlayGif } from 'mastodon/initial_state';
-import { getLocale  } from 'mastodon/locales';
-import googleLogo from 'images/google_logo.svg';
-import LoadingIndicator from './loading_indicator';
-import api from '../api';
+import StatusTranslation from './status_translation';
 
 const MAX_HEIGHT = 642; // 20px * 32 (+ 2px padding at the top)
 
@@ -265,44 +262,6 @@ export default class StatusContent extends React.PureComponent {
       </button>
     );
 
-    const translationContainer = (
-      getLocale().localeData[0].locale !== status.get('language') ?
-      (<React.Fragment>
-        <button
-          tabIndex='-1' className={'status__content__show-translation-button'}
-          onClick={this.handleTranslationClick.bind(this)}
-        >{toggleTranslation} <Icon id='language ' fixedWidth /></button>
-
-        {/* error message */}
-        <div className='translation-content__wrapper'>
-          <section
-            className={`translation-content__failed ${this.state.translationStatus === 'failed' ? 'display' : 'hidden'}`}
-          >
-            <p><FormattedMessage id='status.translation_failed' defaultMessage='Fetch translation failed' /></p>
-          </section>
-          <section
-            className={`translation-content__loading ${this.state.translationStatus === 'fetching' ? 'display' : 'hidden'}`}
-          >
-            <LoadingIndicator />
-            {/* <p>Fetching translation, please wait</p> */}
-          </section>
-          <section
-            className={`translation-content__succeed ${this.state.translationStatus === 'succeed' && !this.state.hideTranslation ? 'display' : 'hidden'}`}
-          >
-            <p className='translation-content__powered-by'>
-              <FormattedMessage
-                id='status.translation_by' defaultMessage='Translation powered by {google}'
-                values={{
-                  google: <img alt='Google' draggable='false' src={googleLogo} />,
-                }}
-              />
-            </p>
-            <p className='translation-content'>{this.state.translation}</p>
-          </section>
-        </div>
-      </React.Fragment>) : null
-    );
-
     const showPollButton = (
       <button className='status__content__read-more-button' onClick={this.props.onClick} key='show-poll'>
         <FormattedMessage id='status.show_poll' defaultMessage='Show poll' /><Icon id='angle-right' fixedWidth />
@@ -340,7 +299,7 @@ export default class StatusContent extends React.PureComponent {
 
           <div tabIndex={!hidden ? 0 : null} className={`status__content__text ${!hidden ? 'status__content__text--visible' : ''} translate`} lang={lang} dangerouslySetInnerHTML={content} />
 
-          {!hidden ? translationContainer : null}
+          {!hidden ? <StatusTranslation status={status} /> : null}
 
           {!hidden && renderShowPoll && quote ? showPollButton : pollContainer}
 
@@ -352,7 +311,7 @@ export default class StatusContent extends React.PureComponent {
         <div className={classNames} ref={this.setRef} tabIndex='0' onMouseDown={this.handleMouseDown} onMouseUp={this.handleMouseUp} key='status-content' onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave}>
           <div className='status__content__text status__content__text--visible translate' lang={lang} dangerouslySetInnerHTML={content} />
 
-          {translationContainer}
+          <StatusTranslation status={status} />
 
           {renderShowPoll && quote ? showPollButton : pollContainer}
 
@@ -370,7 +329,7 @@ export default class StatusContent extends React.PureComponent {
         <div className={classNames} ref={this.setRef} tabIndex='0' onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave}>
           <div className='status__content__text status__content__text--visible translate' lang={lang} dangerouslySetInnerHTML={content} />
 
-          {translationContainer}
+          <StatusTranslation status={status} />
 
           {renderShowPoll && quote ? showPollButton : pollContainer}
 

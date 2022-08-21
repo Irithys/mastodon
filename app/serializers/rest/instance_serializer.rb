@@ -93,7 +93,15 @@ class REST::InstanceSerializer < ActiveModel::Serializer
   end
 
   def invites_enabled
-    Setting.min_invite_role == 'user'
+    UserRole.everyone.can?(:invite_users)
+  end
+
+  def feature_quote
+    true
+  end
+
+  def max_toot_chars
+    StatusLengthValidator::MAX_CHARS
   end
 
   def feature_quote

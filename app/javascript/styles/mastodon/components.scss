@@ -98,6 +98,7 @@
   &.button-alternative,
   &.button-secondary,
   &.button-alternative-2,
+  &.button-azure_oauth2,
   &.button-github,
   &.button-gitee,
   &.button-gitlab {
@@ -177,6 +178,17 @@
     &:focus,
     &:hover {
       background-color: darken(#fc6d27, 4%);
+    }
+  }
+
+  &.button-azure_oauth2 {
+    color: $white;
+    background: #111217;
+
+    &:active,
+    &:focus,
+    &:hover {
+      background-color: darken(#111217, 4%);
     }
   }
   
@@ -835,9 +847,9 @@
   &.status__content--with-spoiler {
     white-space: normal;
 
-    .status__content__text {
-      white-space: pre-wrap;
-    }
+    //.status__content__text {
+    //  white-space: pre-wrap;
+    //}
   }
 
   .emojione {
@@ -1968,8 +1980,12 @@ a.account__display-name {
     object-fit: contain;
   }
 
-  .loading-bar {
+  .loading-bar__container {
     position: relative;
+  }
+
+  .loading-bar {
+    position: absolute;
   }
 
   &.image-loader--amorphous .image-loader__preview-canvas {
@@ -2800,7 +2816,7 @@ a.account__display-name {
 
 .column-actions {
   display: flex;
-  align-items: start;
+  align-items: flex-start;
   justify-content: center;
   padding: 40px;
   padding-top: 40px;
@@ -7450,6 +7466,13 @@ noscript {
       padding-right: 15px;
       margin-left: 5px;
       color: $secondary-text-color;
+      text-decoration: none;
+
+      &__asterisk {
+        color: $darker-text-color;
+        font-size: 18px;
+        vertical-align: super;
+      }
     }
 
     &__sparkline {
