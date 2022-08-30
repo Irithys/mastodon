@@ -20,7 +20,6 @@ light-pink: styles/light-pink.scss
 transparent-starry-sky: styles/transparent-starry-sky.scss
 transparent-forest-trace: styles/transparent-forest-trace.scss
 transparent-aurora: styles/transparent-aurora.scss
-transparent-cake: styles/transparent-cake.scss
 transparent-slience: styles/transparent-slience.scss
 transparent-hello: styles/transparent-hello.scss
 transparent-rose-1: styles/transparent-rose-1.scss
@@ -29,6 +28,7 @@ transparent-coffee: styles/transparent-coffee.scss
 transparent-home: styles/transparent-home.scss
 transparent-holiday: styles/transparent-holiday.scss
 transparent-green: styles/transparent-green.scss
+transparent-tea: styles/transparent-tea.scss
 witches-town: styles/witches-town.scss
 sleeping-town: styles/sleeping-town.scss
 forest: styles/forest.scss
