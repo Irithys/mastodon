@@ -34,7 +34,7 @@ zh-CN:
         avatar: 文件大小限制 %{size}，只支持 PNG、GIF 或 JPG 格式。图片分辨率将会压缩至 %{dimensions}px
         bot: 来自这个帐户的绝大多数操作都是自动进行的，并且可能无人监控
         bot_warning: 如果你是普通用户，切勿勾选此项，否则你将无法查看时间线，你发送的嘟文也将被从本地时间线上过滤
-        context: 过滤器的应用场景
+        context: 过滤器的应用环境
         current_password: 为了安全起见，请输入当前账号的密码
         current_password_reset_tip: 如果忘记或不知道当前密码，请登出当前账号并在登陆页面点击"忘记密码"，以使用邮箱重置密码.
         current_username: 请输入当前账号的用户名以确认
@@ -91,6 +91,7 @@ zh-CN:
         ip: 输入 IPv4 或 IPv6 地址。你可以使用 CIDR 语法屏蔽 IP 段。小心不要屏蔽自己！
         severities:
           no_access: 阻止访问所有资源
+          sign_up_block: 无法进行新的账号注册
           sign_up_requires_approval: 新注册需要你的批准
         severity: 选择如何处理来自此 IP 的请求。
       rule:
@@ -155,7 +156,7 @@ zh-CN:
         chosen_languages: 语言过滤
         confirm_new_password: 确认新密码
         confirm_password: 确认密码
-        context: 过滤器场景
+        context: 过滤器环境
         current_password: 当前密码
         data: 数据文件
         discoverable: 在本站用户目录中收录此账号
@@ -234,6 +235,7 @@ zh-CN:
         ip: IP 地址
         severities:
           no_access: 阻止访问
+          sign_up_block: 阻止账号注册
           sign_up_requires_approval: 限制注册
         severity: 规则
       notification_emails:

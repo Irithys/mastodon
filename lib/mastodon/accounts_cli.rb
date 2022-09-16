@@ -136,7 +136,7 @@ module Mastodon
     option :role
     option :reattach, type: :boolean
     option :force, type: :boolean
-    desc 'create USERNAME', 'Create a new user'
+    desc 'create USERNAME', 'Create a new user account'
     long_desc <<-LONG_DESC
       Create a new user account with a given USERNAME and an
       e-mail address provided with --email.
@@ -214,7 +214,7 @@ module Mastodon
     option :disable_2fa, type: :boolean
     option :approve, type: :boolean
     option :reset_password, type: :boolean
-    desc 'modify USERNAME', 'Modify a user'
+    desc 'modify USERNAME', 'Modify a user account'
     long_desc <<-LONG_DESC
       Modify a user account.
 
